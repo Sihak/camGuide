@@ -43,24 +43,21 @@ export default class Carousel extends Component {
     const { slider1ActiveSlide, slider1Ref } = this.state;
     return (
         <Carousels
-          autoplay={true}
           ref={(c) => { if (!this.state.slider1Ref) { this.setState({ slider1Ref: c }); } }}
           data={ENTRIES1}
           renderItem={this._renderItemWithParallax}
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
           hasParallaxImages={true}
-          firstItem={SLIDER_1_FIRST_ITEM}
-          inactiveSlideScale={0.85}
+          inactiveSlideScale={1}
           inactiveSlideOpacity={1}
-          enableMomentum={true}
           containerCustomStyle={styles.slider}
           contentContainerCustomStyle={styles.sliderContentContainer}
           loop={true}
-          loopClonesPerSide={1}
+          loopClonesPerSide={3}
           autoplay={true}
-          autoplayDelay={0}
-          autoplayInterval={800}
+          autoplayDelay={100}
+          autoplayInterval={100}
           onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index })}
         />
     );

@@ -8,7 +8,7 @@ function wp (percentage) {
     return Math.round(value);
 }
 
-const slideHeight = wp(53);
+const slideHeight = wp(47);
 const slideWidth = wp(90);
 const itemHorizontalMargin = wp(.5);
 

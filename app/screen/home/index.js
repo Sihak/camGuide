@@ -2,11 +2,12 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Dimensions, Text, SafeAreaView, Platform, Image, ScrollView, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MainCarousel from '../../component/carousel'
-import SubCarousel from '../../component/subCarousel'
+
+import MainCarousel from '../../component/carousel';
+import SubCarousel from '../../component/subCarousel';
+
 import { COLORS, APPEARANCES } from '../../module';
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
-import Carousel from 'react-native-snap-carousel';
 import GridMenu from './GridMenu';
 import * as Animatable from 'react-native-animatable';
 import PrimaryHeader from '../../component/primaryHeader';
@@ -44,6 +45,66 @@ class HomeApp extends Component {
                 title: 'Middle Earth, Germany',
                 subtitle: 'Lorem ipsum dolor sit amet',
                 illustration: 'https://i.imgur.com/lceHsT6l.jpg'
+            },
+            {
+                title: 'Beautiful and dramatic Antelope Canyon',
+                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+                illustration: 'https://i.imgur.com/UYiroysl.jpg'
+            },
+            {
+                title: 'Earlier this morning, NYC',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
+            },
+            {
+                title: 'White Pocket Sunset',
+                subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
+                illustration: 'https://i.imgur.com/MABUbpDl.jpg'
+            },
+            {
+                title: 'Acrocorinth, Greece',
+                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+                illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
+            },
+            {
+                title: 'The lone tree, majestic landscape of New Zealand',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
+            },
+            {
+                title: 'Middle Earth, Germany',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                illustration: 'https://i.imgur.com/lceHsT6l.jpg'
+            },
+            {
+                title: 'Beautiful and dramatic Antelope Canyon',
+                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+                illustration: 'https://i.imgur.com/UYiroysl.jpg'
+            },
+            {
+                title: 'Earlier this morning, NYC',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
+            },
+            {
+                title: 'White Pocket Sunset',
+                subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
+                illustration: 'https://i.imgur.com/MABUbpDl.jpg'
+            },
+            {
+                title: 'Acrocorinth, Greece',
+                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+                illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
+            },
+            {
+                title: 'The lone tree, majestic landscape of New Zealand',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
+            },
+            {
+                title: 'Middle Earth, Germany',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                illustration: 'https://i.imgur.com/lceHsT6l.jpg'
             }
         ];
         return (
@@ -52,7 +113,9 @@ class HomeApp extends Component {
                 <ScrollView style={styles.container}>
                    <PrimaryHeader 
                    tittle = {'camGuide'}
-                   pressed = {() => this.props.navigation.navigate('Search')}
+                   isHome = {true}
+                   searchPressed = {() => this.props.navigation.navigate('Search')}
+                   notificationPressed = {() => this.props.navigation.navigate('Search')}
                     />
                     <View style={[styles.carouselContainer, APPEARANCES.SHADOW]} >
                         <MainCarousel data={data} />
@@ -67,10 +130,14 @@ class HomeApp extends Component {
         );
     }
 }
+function wp (percentage) {
+    const value = (percentage * viewportWidth) / 100;
+    return Math.round(value);
+}
 
 const styles = StyleSheet.create({
     carouselContainer: {
-        height: 210,
+        height: wp(50),
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -82,7 +149,7 @@ const styles = StyleSheet.create({
         elevation: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 100,
+        height: wp(23),
     },
     subHearderTittle: {
         fontSize: 32,
@@ -94,46 +161,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-    gridMenu: {
-        opacity: 0.8,
-        height: 200,
-        width: '100%',
-        borderRadius: 16,
-        marginVertical: APPEARANCES.MARGIN,
-        backgroundColor: 'rgba(255,255,255,1)',
-        borderLeftWidth: 8,
-        borderLeftColor: '#E82A94',
-        borderRightWidth: 8,
-        borderRightColor: '#15FCBB',
-        borderTopWidth: 4,
-        borderTopColor: '#15FCBB',
-        borderBottomWidth: 4,
-        borderBottomColor: '#E82A94',
-    },
-
-    row: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    gridButton: {
-        flex: 1,
-        margin: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    gridText: {
-        fontWeight: '500',
-        fontSize: 16,
-        color: '#242424',
-    },
-    gridIcon: {
-        fontSize: 52,
-        fontWeight: '300',
-        color: '#242424',
-    }
 
 
 });

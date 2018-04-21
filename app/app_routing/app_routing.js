@@ -20,17 +20,6 @@ const AppNavigator = TabNavigator({
           }
     },
   
-    Notification: {
-        screen: HomeApp,
-        navigationOptions: {
-            title:'Notification',
-            tabBarIcon: ({ focused }) => (
-              focused ?
-              <Ionicons name="ios-notifications" size={24} iconStyle={{paddingBottom:0,paddingTop:0}} color= {activeColor} />:
-              <Ionicons name="ios-notifications" size={24} iconStyle={{paddingBottom:0,paddingTop:0}} color= {color} />
-            ),
-          }
-    },
     Home: {
         screen: HomeStack,
         navigationOptions: {
@@ -76,6 +65,10 @@ const AppNavigator = TabNavigator({
             swipeEnabled: true,
             showLabel: true,
             showIcon: true,
+            labelStyle : {
+                fontSize: 12,
+                fontWeight: '300'
+            },
             activeTintColor : activeColor,
             style: {
                 elevation: 0,

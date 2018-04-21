@@ -8,8 +8,8 @@ function wp (percentage) {
     return Math.round(value);
 }
 
-const slideHeight = wp(20);
-const slideWidth = wp(33);
+const slideHeight = 45;
+const slideWidth = 50;
 const itemHorizontalMargin = wp(1);
 
 export const sliderWidth = viewportWidth;
@@ -26,10 +26,8 @@ export default StyleSheet.create({
     imageContainer: {
         flex: 1,
         backgroundColor: colors.slideBackground,
-        borderTopLeftRadius: 4,
-        borderTopRightRadius: 4,
-        borderBottomLeftRadius: 4,
-        borderBottomRightRadius: 4
+        borderRadius: 50
+        
     },
     imageContainerEven: {
         backgroundColor: colors.slideBackground

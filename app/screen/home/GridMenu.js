@@ -7,8 +7,7 @@ import { View, StyleSheet, Dimensions, Text, Platform, TouchableOpacity } from '
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 class GridMenu extends Component {
-
-
+    
     render(){
         return(
             <View style={[styles.gridMenu]} >
@@ -38,13 +37,19 @@ class GridMenu extends Component {
     }
 }
 
+function wp (percentage) {
+    const value = (percentage * viewportWidth) / 100;
+    return Math.round(value);
+}
+
 const styles = StyleSheet.create({
     gridMenu: {
+        marginTop: 15,
+        marginBottom: 5,
         opacity: 0.8 ,
-        height: 200,
+        height: wp(50),
         width: '100%',
         borderRadius: 16,
-        marginVertical: APPEARANCES.MARGIN,
         backgroundColor: 'rgba(255,255,255,1)',
         borderLeftWidth:8,
         borderLeftColor: '#E82A94',
@@ -70,12 +75,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     gridText: {
-        fontWeight: '500',
-        fontSize: 16,
+        fontWeight: '300',
+        fontSize: wp(5),
         color: '#242424' ,
     },
     gridIcon: {
-        fontSize: 52,
+        fontSize: wp(10),
         fontWeight: '300',
         color: '#242424',
     }

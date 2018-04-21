@@ -7,18 +7,15 @@
 import React, { Component } from 'react';
 import {
   Platform,
-  StyleSheet,
-  Text,
-  View
+  YellowBox
 } from 'react-native';
-import LoginSignUpNavigator from './app/app_routing/stackNavigator'
 
+import AppNavigator from './app/app_routing/app_routing.js';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-import {YellowBox} from 'react-native'
 export default class App extends Component {
   render() {
     return (
-      <LoginSignUpNavigator/>
+     <AppNavigator />
     );
   }
 }

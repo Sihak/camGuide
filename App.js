@@ -11,11 +11,31 @@ import {
 } from 'react-native';
 
 import AppNavigator from './app/app_routing/app_routing.js';
+import LoginSignUpNavigator from './app/app_routing/stackNavigator';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isLogedin : false,
+    }
+  }
+  switchRoute(){
+    if(this.state.isLogedin){
+      return(
+        <AppNavigator />
+      )
+    }
+    else{
+      return(
+        <LoginSignUpNavigator />
+      )
+    }
+  }
+
   render() {
     return (
-     <AppNavigator />
+      this.switchRoute()
     );
   }
 }

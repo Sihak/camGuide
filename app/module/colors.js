@@ -1,5 +1,5 @@
 COLORS = {
-    SUB_HEADER_TITTLE : '#333'
+    SUB_HEADER_TITTLE : '#fff'
 }
 
 module.exports = COLORS;

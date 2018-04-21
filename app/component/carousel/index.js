@@ -43,6 +43,8 @@ export default class Carousel extends Component {
     const { slider1ActiveSlide, slider1Ref } = this.state;
     return (
         <Carousels
+          layout={'stack'} 
+          ayoutCardOffset={19}        
           autoplay={true}
           ref={(c) => { if (!this.state.slider1Ref) { this.setState({ slider1Ref: c }); } }}
           data={ENTRIES1}
@@ -51,8 +53,8 @@ export default class Carousel extends Component {
           itemWidth={itemWidth}
           hasParallaxImages={true}
           firstItem={SLIDER_1_FIRST_ITEM}
-          inactiveSlideScale={0.94}
-          inactiveSlideOpacity={0.7}
+          inactiveSlideScale={0.95}
+          inactiveSlideOpacity={0.8}
           enableMomentum={false}
           containerCustomStyle={styles.slider}
           contentContainerCustomStyle={styles.sliderContentContainer}

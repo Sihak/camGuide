@@ -7,19 +7,15 @@
 import React, { Component } from 'react';
 import {
   Platform,
-  StyleSheet,
-  Text,
-  View
+  YellowBox
 } from 'react-native';
-
-
+import AppNavigator from './app/app_routing/app_routing.js';
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 export default class App extends Component {
   render() {
     return (
-      <View>
-      
-      </View>
+     <AppNavigator />
     );
   }
 }

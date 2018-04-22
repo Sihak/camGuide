@@ -8,6 +8,14 @@ import { View, StyleSheet, Dimensions, Text, Platform, TouchableOpacity } from '
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 class PrimaryHeader extends Component {
+
+    onSearchPressed() {
+        this.props.searchPressed()
+    }
+    onNotificationPressed (){
+        this.props.notificationPressed()
+    }
+
     render() {
         return (
             <View animation={'slideInDown'} duration={3000} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -15,12 +23,12 @@ class PrimaryHeader extends Component {
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity
                         style = {{justifyContent: 'center', alignItems: 'center'}}
-                        onPress={() => this.props.searchPressed()} >
+                        onPress={() => this.onSearchPressed()} >
                         <FontAwesome style={[APPEARANCES.SHADOW, { fontSize: 28, marginRight: 12, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='search' />
                     </TouchableOpacity>
                     { this.props.isHome &&  <TouchableOpacity
                         style = {{justifyContent: 'center', alignItems: 'center'}}
-                        onPress={() => this.props.notificationPressed()} >
+                        onPress={() => this.onNotificationPressed()} >
                         <Ionicons style={[APPEARANCES.SHADOW, { fontSize: 34, marginRight: 12,marginTop: 5, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='ios-notifications' />
                     </TouchableOpacity> }
                 </View>

@@ -109,7 +109,10 @@ class HomeApp extends Component {
         ];
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <Image resizeMode={'stretch'} style={{ position: 'absolute', width: viewportWidth, height: viewportHeight }} source={require('../../assets/image/homeBackground.jpg')} />
+                <Image 
+                resizeMode={'stretch'} 
+                style={{ position: 'absolute', width: viewportWidth, height: viewportHeight }} 
+                source={require('../../assets/image/homeBackground.jpg')} />
                 <ScrollView style={styles.container}>
                    <PrimaryHeader 
                    tittle = {'camGuide'}

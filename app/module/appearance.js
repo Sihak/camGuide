@@ -1,4 +1,5 @@
- const APPEARANCE = {
+
+const APPEARANCE = {
     MARGIN : 15,
     BORDER_RADIUS: 4,
     SHADOW : {
@@ -9,5 +10,4 @@
         elevation: 1,
     }
 }
-
 module.exports = APPEARANCE;

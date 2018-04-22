@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
-import ScreenSearch from '../screen/Search';
+import ScreenSearch from '../screen/home/Search';
 import HomeApp from '../screen/home';
 
 const HomeStack = StackNavigator({

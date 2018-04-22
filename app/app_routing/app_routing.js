@@ -56,7 +56,6 @@ const AppNavigator = TabNavigator({
     },
 },
     {
-        swipeEnabled: true,
         initialRouteName: 'Home',
         tabBarPosition: 'bottom',
         animationEnabled: true,

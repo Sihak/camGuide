@@ -6,7 +6,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MainCarousel from '../../component/carousel';
 import SubCarousel from '../../component/subCarousel';
 
-import { COLORS, APPEARANCES } from '../../module';
+import { COLORS, APPEARANCES, DIMENSION } from '../../module';
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 import GridMenu from './GridMenu';
 import * as Animatable from 'react-native-animatable';
@@ -114,8 +114,8 @@ class HomeApp extends Component {
                    <PrimaryHeader 
                    tittle = {'camGuide'}
                    isHome = {true}
-                   searchPressed = {() => this.props.navigation.navigate('Search')}
-                   notificationPressed = {() => this.props.navigation.navigate('Search')}
+                   searchPressed = { () => this.props.navigation.navigate('Search')}
+                   notificationPressed = { () => this.props.navigation.navigate('Search')}
                     />
                     <View style={[styles.carouselContainer, APPEARANCES.SHADOW]} >
                         <MainCarousel data={data} />
@@ -130,14 +130,11 @@ class HomeApp extends Component {
         );
     }
 }
-function wp (percentage) {
-    const value = (percentage * viewportWidth) / 100;
-    return Math.round(value);
-}
+
 
 const styles = StyleSheet.create({
     carouselContainer: {
-        height: wp(50),
+        height: DIMENSION(50),
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -149,7 +146,7 @@ const styles = StyleSheet.create({
         elevation: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: wp(23),
+        height: DIMENSION(23),
     },
     subHearderTittle: {
         fontSize: 32,

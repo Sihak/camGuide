@@ -57,28 +57,22 @@ export default StyleSheet.create({
         paddingBottom: 10,
         paddingHorizontal: 10,
         backgroundColor: '#fff',
-        borderBottomLeftRadius: 8,
-        borderBottomRightRadius: 8,
         alignItems:'center',
-        borderBottomWidth:0.7,
-        borderLeftWidth:0.7,
-        borderRightWidth:0.7,
-        borderColor: '#CDD7E0',
+        backgroundColor: '#333'
     },
     textContainerEven: {
-        backgroundColor:'#fff'
+        backgroundColor:'#333'
     },
     title: {
-        color: colors.slideColor,
+        color: '#fff',
         fontSize: 14,
         fontWeight: '300',
         letterSpacing: 0.5
     },
     titleEven: {
-        color: colors.slideColor
+        color: '#fff'
     },
     subtitle: {
-        marginTop: 6,
         color: colors.gray,
         fontSize: 12,
         fontStyle: 'italic'

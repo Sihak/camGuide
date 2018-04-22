@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { COLORS, APPEARANCES } from '../../module';
+import { COLORS, APPEARANCES, DIMENSION } from '../../module';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { View, StyleSheet, Dimensions, Text, Platform, TouchableOpacity } from 'react-native';
@@ -37,17 +37,12 @@ class GridMenu extends Component {
     }
 }
 
-function wp (percentage) {
-    const value = (percentage * viewportWidth) / 100;
-    return Math.round(value);
-}
-
 const styles = StyleSheet.create({
     gridMenu: {
         marginTop: 15,
         marginBottom: 5,
         opacity: 0.8 ,
-        height: wp(50),
+        height: DIMENSION(50),
         width: '100%',
         borderRadius: 16,
         backgroundColor: 'rgba(255,255,255,1)',
@@ -76,11 +71,11 @@ const styles = StyleSheet.create({
     },
     gridText: {
         fontWeight: '300',
-        fontSize: wp(5),
+        fontSize: DIMENSION(3),
         color: '#242424' ,
     },
     gridIcon: {
-        fontSize: wp(10),
+        fontSize: DIMENSION(10),
         fontWeight: '300',
         color: '#242424',
     }

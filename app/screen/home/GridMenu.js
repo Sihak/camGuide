@@ -15,10 +15,10 @@ class GridMenu extends Component {
             <View style={[styles.gridMenu]} >
             <View style={styles.row}>
                 <TouchableOpacity
-                 onPress = {() => this.buttonPressed('place')}
+                 onPress = {() => this.buttonPressed('safari')}
                  style={[styles.gridButton]} >
-                    <Ionicons name={'md-locate'} style={[  styles.gridIcon]} />
-                    <Text style={[styles.gridText]} > Places </Text>
+                    <Ionicons name={'ios-navigate'} style={[  styles.gridIcon]} />
+                    <Text style={[styles.gridText]} > Safari </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                  onPress = {() => this.buttonPressed('transportaion')}                

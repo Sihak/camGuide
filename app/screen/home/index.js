@@ -37,6 +37,7 @@ class HomeApp extends Component {
                 source={this.state.background} />
                 <ScrollView style={styles.container}>
                    <PrimaryHeader 
+                    isHome = {true}
                    tittle = {'camGuide'}
                    showSearch = {false}
                    showNotification = {true}

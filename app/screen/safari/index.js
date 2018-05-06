@@ -5,10 +5,12 @@ import { COLORS, APPEARANCES, DIMENSION } from '../../module';
 import PrimaryHeader from '../../component/primaryHeader';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SearchInput from '../../component/searchInput';
+import Carousel from '../../component/subCarousel';
+
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
-class Place extends Component {
+class Safari extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,28 +19,38 @@ class Place extends Component {
     }
     render() {
         return (
-            <View style={[{ flex: 1 }, APPEARANCES.SHADOW]}>
-                <View style={[styles.container]}>
+            <SafeAreaView style={[{ flex: 1}]}>
+                <Image resizeMode = "cover" style = {{ position:'absolute', height: viewportHeight ,width: viewportWidth,   }} source = {require('../../assets/image/safari_cover.jpg')} />            
+                <View style={[styles.header]}>
                     <PrimaryHeader
-                        tittle={'Place' }
+                        tittle={'Safari' }
+                        onBackPressed = {() => this.props.navigation.goBack()}
                     />
                     <SearchInput
                     placeholder = {'Where do you want to go?'}
                      />
                 </View>
-            </View>
+            
+                <View style ={ styles.body }>
+
+                </View>
+            </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    header: {
         padding: APPEARANCES.MARGIN,
-        height: viewportHeight / 5,
-        width: viewportWidth,
-        backgroundColor: '#3EB9BB',
-        paddingTop:DIMENSION(12)        
+        paddingTop: APPEARANCES.MARGIN - 5,
+        height: DIMENSION(30),
+        width: DIMENSION(100),
     },
+
+    body:{
+        flex:1,
+        padding: APPEARANCES.MARGIN,
+    }
 });
 
-export default Place;
+export default Safari;

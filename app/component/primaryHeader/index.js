@@ -15,17 +15,28 @@ class PrimaryHeader extends Component {
     onNotificationPressed() {
         this.props.notificationPressed()
     }
-
+    
+    onBackPressed(){
+        this.props.onBackPressed()
+    }
     render() {
         return (
             <View animation={'slideInDown'} duration={3000} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Text style={[styles.subHearderTittle, APPEARANCES.SHADOW]}> {this.props.tittle} </Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    {!this.props.isHome && 
+                      <TouchableOpacity onPress = {() => this.onBackPressed()} >
+                     <Ionicons style={[{ fontSize: 36, color: '#fff',marginTop: 7 }, APPEARANCES.SHADOW]} name={'ios-arrow-back'} /> 
+                     </TouchableOpacity>}
+                    <Text style={[styles.subHearderTittle, APPEARANCES.SHADOW]}> {this.props.tittle} </Text>
+                    
+                </View>
+
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     {this.props.showSearch && <TouchableOpacity
-                            style={{ justifyContent: 'center', alignItems: 'center' }}
-                            onPress={() => this.onSearchPressed()} >
+                        style={{ justifyContent: 'center', alignItems: 'center' }}
+                        onPress={() => this.onSearchPressed()} >
                         <FontAwesome style={[APPEARANCES.SHADOW, { fontSize: 28, marginRight: 12, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='search' />
-                        </TouchableOpacity>
+                    </TouchableOpacity>
                     }
 
                     {this.props.showNotification && <TouchableOpacity

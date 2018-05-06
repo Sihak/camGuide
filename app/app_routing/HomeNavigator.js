@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
-import Place from '../screen/place';
 import HomeApp from '../screen/home';
 import Restaurant from '../screen/restaurant';
 import Accommodation from '../screen/accommodation';
 import Transportation from '../screen/transportation';
+import Safari from '../screen/safari';
 
 const HomeStack = StackNavigator({
     Home: {
@@ -15,8 +15,8 @@ const HomeStack = StackNavigator({
             gestureEnabled: true,
         }
     },
-    place: {
-        screen: Place,
+    safari: {
+        screen: Safari,
         navigationOptions: {
             header: 'none',
             gestureEnabled: true,

@@ -12,7 +12,7 @@ class PrimaryHeader extends Component {
     onSearchPressed() {
         this.props.searchPressed()
     }
-    onNotificationPressed (){
+    onNotificationPressed() {
         this.props.notificationPressed()
     }
 
@@ -21,16 +21,18 @@ class PrimaryHeader extends Component {
             <View animation={'slideInDown'} duration={3000} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Text style={[styles.subHearderTittle, APPEARANCES.SHADOW]}> {this.props.tittle} </Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity
-                        style = {{justifyContent: 'center', alignItems: 'center'}}
-                        onPress={() => this.onSearchPressed()} >
+                    {this.props.showSearch && <TouchableOpacity
+                            style={{ justifyContent: 'center', alignItems: 'center' }}
+                            onPress={() => this.onSearchPressed()} >
                         <FontAwesome style={[APPEARANCES.SHADOW, { fontSize: 28, marginRight: 12, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='search' />
-                    </TouchableOpacity>
-                    { this.props.isHome &&  <TouchableOpacity
-                        style = {{justifyContent: 'center', alignItems: 'center'}}
+                        </TouchableOpacity>
+                    }
+
+                    {this.props.showNotification && <TouchableOpacity
+                        style={{ justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => this.onNotificationPressed()} >
-                        <Ionicons style={[APPEARANCES.SHADOW, { fontSize: 34, marginRight: 12,marginTop: 5, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='ios-notifications' />
-                    </TouchableOpacity> }
+                        <Ionicons style={[APPEARANCES.SHADOW, { fontSize: 34, marginRight: 12, marginTop: 5, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='ios-notifications' />
+                    </TouchableOpacity>}
                 </View>
 
             </View>

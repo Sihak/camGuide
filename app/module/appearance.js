@@ -2,6 +2,7 @@
 const APPEARANCE = {
     MARGIN : 15,
     BORDER_RADIUS: 4,
+    UNIT_MARGIN: 5,
     SHADOW : {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },

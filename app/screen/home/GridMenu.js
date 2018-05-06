@@ -7,26 +7,36 @@ import { View, StyleSheet, Dimensions, Text, Platform, TouchableOpacity } from '
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 class GridMenu extends Component {
-    
+    buttonPressed(value){
+        this.props.onButtonPressed(value)
+    }
     render(){
         return(
             <View style={[styles.gridMenu]} >
             <View style={styles.row}>
-                <TouchableOpacity style={[styles.gridButton]} >
+                <TouchableOpacity
+                 onPress = {() => this.buttonPressed('place')}
+                 style={[styles.gridButton]} >
                     <Ionicons name={'md-locate'} style={[  styles.gridIcon]} />
                     <Text style={[styles.gridText]} > Places </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.gridButton]} >
-                    <Ionicons name={'ios-navigate'} style={[ styles.gridIcon]} />
+                <TouchableOpacity
+                 onPress = {() => this.buttonPressed('transportaion')}                
+                 style={[styles.gridButton]} >
+                    <Ionicons name={'md-bus'} style={[ styles.gridIcon]} />
                     <Text style={[styles.gridText]} > Transportation </Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.row}>
-                <TouchableOpacity style={[styles.gridButton]} >
+                <TouchableOpacity
+                 onPress = {() => this.buttonPressed('accommodation')}                
+                 style={[styles.gridButton]} >
                     <FontAwesome name={'bed'} style={[ styles.gridIcon]} />
                     <Text style={[styles.gridText]} > Accommodation </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.gridButton]} >
+                <TouchableOpacity 
+                 onPress = {() => this.buttonPressed('restaurant')}                
+                style={[styles.gridButton]} >
                     <Ionicons name={'ios-restaurant'} style={[ styles.gridIcon]} />
                     <Text style={[styles.gridText]} > Restaurant </Text>
 
@@ -44,16 +54,8 @@ const styles = StyleSheet.create({
         opacity: 0.8 ,
         height: DIMENSION(50),
         width: '100%',
-        borderRadius: 16,
+        borderRadius: 4,
         backgroundColor: 'rgba(255,255,255,1)',
-        borderLeftWidth:8,
-        borderLeftColor: '#E82A94',
-        borderRightWidth:8,
-        borderRightColor: '#15FCBB',
-        borderTopWidth:4,
-        borderTopColor:  '#15FCBB',
-        borderBottomWidth:4,
-        borderBottomColor:  '#E82A94',
     },
 
     row: {

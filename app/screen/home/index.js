@@ -11,113 +11,35 @@ const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window'
 import GridMenu from './GridMenu';
 import * as Animatable from 'react-native-animatable';
 import PrimaryHeader from '../../component/primaryHeader';
+import testingData from '../../assets/testingData';
 
 
 class HomeApp extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            background:require('../../assets/image/homeBackground.jpg'),
+        }
+    }
+
+
+    onNavigate(value){
+        this.props.navigation.navigate(value);
+    }
+
     render() {
-        const data = [
-            {
-                title: 'Beautiful and dramatic Antelope Canyon',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-                illustration: 'https://i.imgur.com/UYiroysl.jpg'
-            },
-            {
-                title: 'Earlier this morning, NYC',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
-            },
-            {
-                title: 'White Pocket Sunset',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-                illustration: 'https://i.imgur.com/MABUbpDl.jpg'
-            },
-            {
-                title: 'Acrocorinth, Greece',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-                illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
-            },
-            {
-                title: 'The lone tree, majestic landscape of New Zealand',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
-            },
-            {
-                title: 'Middle Earth, Germany',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/lceHsT6l.jpg'
-            },
-            {
-                title: 'Beautiful and dramatic Antelope Canyon',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-                illustration: 'https://i.imgur.com/UYiroysl.jpg'
-            },
-            {
-                title: 'Earlier this morning, NYC',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
-            },
-            {
-                title: 'White Pocket Sunset',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-                illustration: 'https://i.imgur.com/MABUbpDl.jpg'
-            },
-            {
-                title: 'Acrocorinth, Greece',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-                illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
-            },
-            {
-                title: 'The lone tree, majestic landscape of New Zealand',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
-            },
-            {
-                title: 'Middle Earth, Germany',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/lceHsT6l.jpg'
-            },
-            {
-                title: 'Beautiful and dramatic Antelope Canyon',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-                illustration: 'https://i.imgur.com/UYiroysl.jpg'
-            },
-            {
-                title: 'Earlier this morning, NYC',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
-            },
-            {
-                title: 'White Pocket Sunset',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-                illustration: 'https://i.imgur.com/MABUbpDl.jpg'
-            },
-            {
-                title: 'Acrocorinth, Greece',
-                subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-                illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
-            },
-            {
-                title: 'The lone tree, majestic landscape of New Zealand',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
-            },
-            {
-                title: 'Middle Earth, Germany',
-                subtitle: 'Lorem ipsum dolor sit amet',
-                illustration: 'https://i.imgur.com/lceHsT6l.jpg'
-            }
-        ];
+        const data = testingData
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <Image 
                 resizeMode={'stretch'} 
                 style={{ position: 'absolute', width: viewportWidth, height: viewportHeight }} 
-                source={require('../../assets/image/homeBackground.jpg')} />
+                source={this.state.background} />
                 <ScrollView style={styles.container}>
                    <PrimaryHeader 
                    tittle = {'camGuide'}
-                   isHome = {true}
-                   searchPressed = { () => this.props.navigation.navigate('Search')}
+                   showSearch = {false}
+                   showNotification = {true}
                    notificationPressed = { () => this.props.navigation.navigate('Search')}
                     />
                     <View style={[styles.carouselContainer, APPEARANCES.SHADOW]} >
@@ -127,7 +49,9 @@ class HomeApp extends Component {
                     <View style={styles.SubCarouselContainer}>
                         <SubCarousel data={data} />
                     </View>
-                    <GridMenu />
+                    <GridMenu
+                        onButtonPressed = {(value) => this.onNavigate(value)}
+                     />
                 </ScrollView>
             </SafeAreaView>
         );

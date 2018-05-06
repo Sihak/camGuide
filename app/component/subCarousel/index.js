@@ -51,7 +51,7 @@ export default class Carousel extends Component {
           itemWidth={itemWidth}
           hasParallaxImages={true}
           firstItem={SLIDER_1_FIRST_ITEM}
-          inactiveSlideScale={0.85}
+          inactiveSlideScale={.85}
           inactiveSlideOpacity={1}
           enableMomentum={true}
           containerCustomStyle={styles.slider}
@@ -60,7 +60,7 @@ export default class Carousel extends Component {
           loopClonesPerSide={1}
           autoplay={true}
           autoplayDelay={0}
-          autoplayInterval={800}
+          autoplayInterval={1000}
           onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index })}
         />
     );

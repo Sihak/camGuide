@@ -7,6 +7,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import PrimaryHeader from '../../component/primaryHeader';
 
 const filters =  [
+    { name: 'all',
+    forShow: 'All'
+ },
     { name: 'phnompenh',
     forShow: 'PhnomPenh'
  },
@@ -95,7 +98,7 @@ class FilterScreen extends Component {
             <SafeAreaView style={styles.container}>
                 <View style = {{ paddingLeft: 25 }} >
                 <PrimaryHeader 
-                color = '#333'
+                 color = '#333'
                  tittle={'back'}
                  onBackPressed={() => this.props.navigation.goBack()}
                 />
@@ -115,12 +118,6 @@ class FilterScreen extends Component {
         );
     }
 }
-
-
-// function mapStateToProps(state = null){
-//     return
-//         provinces: state.provinces 
-// }
 
 const styles = StyleSheet.create({
     container: {

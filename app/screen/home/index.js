@@ -18,7 +18,7 @@ class HomeApp extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            background:require('../../assets/image/homeBackground.jpg'),
+            background:require('../../assets/image/safari_cover.jpg'),
         }
     }
 
@@ -32,7 +32,7 @@ class HomeApp extends Component {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <Image 
-                resizeMode={'stretch'} 
+                resizeMode={'cover'} 
                 style={{ position: 'absolute', width: viewportWidth, height: viewportHeight }} 
                 source={this.state.background} />
                 <ScrollView style={styles.container}>

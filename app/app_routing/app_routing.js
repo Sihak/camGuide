@@ -8,6 +8,18 @@ const color = '#373737';
 const activeColor = '#F15C53'
 
 const AppNavigator = TabNavigator({
+    Home: {
+        screen: HomeStack,
+        navigationOptions: {
+            title:'Home',
+            tabBarIcon: ({ focused }) => (
+              focused ?
+              <Ionicons name="ios-home" size={24} iconStyle={{paddingBottom:0,paddingTop:0}} color= {activeColor} />:
+              <Ionicons name="ios-home" size={24} iconStyle={{paddingBottom:0,paddingTop:0}} color= {color} />
+            ),
+          }
+    },
+
     Profile: {
         screen: HomeApp,
         navigationOptions: {
@@ -20,17 +32,7 @@ const AppNavigator = TabNavigator({
           }
     },
   
-    Home: {
-        screen: HomeStack,
-        navigationOptions: {
-            title:'Home',
-            tabBarIcon: ({ focused }) => (
-              focused ?
-              <Ionicons name="ios-home" size={24} iconStyle={{paddingBottom:0,paddingTop:0}} color= {activeColor} />:
-              <Ionicons name="ios-home" size={24} iconStyle={{paddingBottom:0,paddingTop:0}} color= {color} />
-            ),
-          }
-    },
+ 
     Booking: {
         screen: HomeApp,
         navigationOptions: {

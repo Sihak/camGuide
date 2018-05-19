@@ -17,19 +17,23 @@ class PrimaryHeader extends Component {
     }
     
     onBackPressed(){
-        this.props.onBackPressed()
+        if(this.props.isHome){
+            return
+        }
+        else{
+            console.log('Pressed')
+            this.props.onBackPressed()
+            console.log(this.props)
+        }
     }
     render() {
         return (
             <View animation={'slideInDown'} duration={3000} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                   <TouchableOpacity onPress = {() => this.onBackPressed()}  style={{ flexDirection: 'row', alignItems: 'center' }}>
                     {!this.props.isHome && 
-                      <TouchableOpacity onPress = {() => this.onBackPressed()} >
-                     <Ionicons style={[{ fontSize: 36, color: '#fff',marginTop: 7 }, APPEARANCES.SHADOW]} name={'ios-arrow-back'} /> 
-                     </TouchableOpacity>}
-                    <Text style={[styles.subHearderTittle, APPEARANCES.SHADOW]}> {this.props.tittle} </Text>
-                    
-                </View>
+                    <Ionicons style={[{ fontSize: 36, color: this.props.color?this.props.color:'#fff',marginTop: 7 }]} name={'ios-arrow-back'} /> }   
+                    <Text style={[styles.subHearderTittle, { color: this.props.color?this.props.color:'#fff' } ]}> {this.props.tittle} </Text>
+                  </TouchableOpacity>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     {this.props.showSearch && <TouchableOpacity
@@ -53,7 +57,7 @@ class PrimaryHeader extends Component {
 
 const styles = StyleSheet.create({
     subHearderTittle: {
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: '300',
         color: COLORS.SUB_HEADER_TITTLE
     },

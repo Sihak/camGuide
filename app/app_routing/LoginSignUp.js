@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation'
-import SignUpLogin from '../screen/signUpLogin/Index'
-import Login from '../screen/signUpLogin/login/Index'
+import AppNavigator from './app_routing';
 
 const LoginSignUpNavigator = StackNavigator(
     {
-        SingUpLogin: { screen: SignUpLogin,
+
+        // SingUpLogin: { screen: SignUpLogin,
         
-        },
-        Login: { screen: Login ,
+        // },
+        // Login: { screen: Login ,
+        // },
+
+        Main: {
+            screen: AppNavigator
         }
+
     },
     {
         headerMode: 'none',
         navigationOptions: {
-            // gesturesEnabled: false,
+            gesturesEnabled: false,
         },
     }
 )

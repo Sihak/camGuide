@@ -5,7 +5,7 @@ import HomeApp from '../screen/home';
 import Restaurant from '../screen/restaurant';
 import Accommodation from '../screen/accommodation';
 import Transportation from '../screen/transportation';
-import Safari from '../screen/safari';
+import SafariRoute from './SafariRoute';
 
 const HomeStack = StackNavigator({
     Home: {
@@ -15,8 +15,8 @@ const HomeStack = StackNavigator({
             gestureEnabled: true,
         }
     },
-    safari: {
-        screen: Safari,
+    Safari: {
+        screen: SafariRoute,
         navigationOptions: {
             header: 'none',
             gestureEnabled: true,

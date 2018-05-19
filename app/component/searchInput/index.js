@@ -33,17 +33,17 @@ class SearchInput extends Component {
 
 const styles = StyleSheet.create({
     search: {
+        marginTop:5,
         flexDirection: 'row',
-        margin: APPEARANCES.MARGIN - 5,
         justifyContent: 'center',
         alignItems: 'center',
     },
     searchInput: {
         height: DIMENSION(9),
-        width: DIMENSION(80),
+        width: DIMENSION(83),
         backgroundColor: 'rgba(255,255,255,1)',
         paddingLeft: 15,
-        borderRadius: 4,
+        borderRadius: 8,
     },
 });
 export default SearchInput;

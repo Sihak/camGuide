@@ -15,7 +15,7 @@ class GridMenu extends Component {
             <View style={[styles.gridMenu]} >
             <View style={styles.row}>
                 <TouchableOpacity
-                 onPress = {() => this.buttonPressed('safari')}
+                 onPress = {() => this.buttonPressed('Safari')}
                  style={[styles.gridButton]} >
                     <Ionicons name={'ios-navigate'} style={[  styles.gridIcon]} />
                     <Text style={[styles.gridText]} > Safari </Text>

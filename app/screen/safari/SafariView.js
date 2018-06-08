@@ -5,6 +5,8 @@ import PrimaryHeader from '../../component/primaryHeader';
 import { COLORS, APPEARANCES, DIMENSION } from '../../module';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
+import MainCarousel from '../../component/simpleCarousel';
+import TestingData from '../../assets/testingData.js';
 import Comment from './Comment';
 // create a component
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
@@ -55,6 +57,9 @@ class SafariView extends Component {
                                 </View>
                             </View>
                         </View>
+                        <View style={[styles.carouselContainer, APPEARANCES.SHADOW]} >
+                            <MainCarousel data={TestingData} />
+                        </View>
                         <View style={styles.desriptionContainer}>
                             <Text
                                 ellipsizeMode={'tail'}
@@ -63,9 +68,9 @@ class SafariView extends Component {
                         </Text>
                         </View>
                     </View>
-                    <Text style = {styles.reviewTittle}>Reviews</Text>
+                    <Text style={styles.reviewTittle}>Reviews</Text>
                     <Comment
-                    profImg = {this.state.illustration}
+                        profImg={this.state.illustration}
                     />
                 </TriggeringView>
             </HeaderImageScrollView>
@@ -86,6 +91,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    carouselContainer: {
+        height: DIMENSION(50),
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     cardTittle: {
         fontSize: 22,
@@ -117,7 +127,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5,
         lineHeight: 22
     },
-    reviewTittle:{
+    reviewTittle: {
         marginLeft: DIMENSION(4),
         fontSize: 28,
         fontWeight: '400',

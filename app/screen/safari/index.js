@@ -17,22 +17,25 @@ class Safari extends Component {
         super(props);
         this.state = {
             tittle: this.props.navigation.state.params,
-            selectedProvinceForShow : '',
+            selectedProvinceForShow: '',
             selectedPrvinceName: '',
+            data : [],
         }
     }
 
-    componentDidMount(){
-       
+    componentWillMount() {
+        this.setState({
+            data : testingData
+        })
     }
 
-    itemSeperator(){
-        return(
-            <View style = { { height: DIMENSION(5) } } ></View>
+    itemSeperator() {
+        return (
+            <View style={{ height: DIMENSION(5) }} ></View>
         )
     }
 
-    returnData (forShow, name){
+    returnData(forShow, name) {
         this.setState({
             selectedProvinceForShow: forShow,
             selectedPrvinceName: name
@@ -41,30 +44,30 @@ class Safari extends Component {
 
     render() {
         return (
-            <SafeAreaView style={[{ backgroundColor: '#E8F2F6', flex: 1 , alignItems: 'center' }]}>
+            <SafeAreaView style={[{ backgroundColor: '#E8F2F6', flex: 1, alignItems: 'center' }]}>
                 <Image resizeMode="cover" style={{ position: 'absolute', height: viewportHeight, width: viewportWidth, opacity: 1 }} source={require('../../assets/image/safari_cove.jpg')} />
                 <View style={[styles.header]}>
                     <PrimaryHeader
                         tittle={'Safari'}
-                        isHome = { true } 
+                        isHome = {true}
                     />
                     <SearchInput
                         placeholder={'Where do you want to go?'}
                     />
-                    <TouchableOpacity 
-                    onPress = {() => this.props.navigation.navigate('FilterScreen',{ returnData: this.returnData.bind(this)})}
-                    style = {[{ marginTop: 10 ,backgroundColor: '#fff', height: 33, width: 200 , justifyContent: 'center', alignItems: 'center', borderRadius: 8 , flexDirection: 'row' }, APPEARANCES.SHADOW]} >
-                       <Ionicons name='md-pin' style={{ fontSize: 16, color: '#32D6FA', marginRight:5 }} />                        
-                        <Text> { (this.state.selectedProvinceForShow != '' ?this.state.selectedProvinceForShow:'All').toUpperCase() } </Text>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('FilterScreen', { returnData: this.returnData.bind(this) })}
+                        style={[{ marginTop: 10, backgroundColor: '#fff', height: 33, width: 200, justifyContent: 'center', alignItems: 'center', borderRadius: 8, flexDirection: 'row' }, APPEARANCES.SHADOW]} >
+                        <Ionicons name='md-pin' style={{ fontSize: 16, color: '#32D6FA', marginRight: 5 }} />
+                        <Text> {(this.state.selectedProvinceForShow != '' ? this.state.selectedProvinceForShow : 'All').toUpperCase()} </Text>
                     </TouchableOpacity>
                 </View>
                 <FlatList style={styles.body}
-                   ItemSeparatorComponent = { () => this.itemSeperator() }
-                    data={ testingData }
+                    ItemSeparatorComponent={() => this.itemSeperator()}
+                    data={this.state.data}
                     keyExtractor={(item, index) => index.toString()}
-                    renderItem={({ item }) => 
+                    renderItem={({ item }) =>
                         <SafariCard
-                            cardPressed = { () => this.props.navigation.navigate('SafariView',[item.illustration, item.title])}
+                            cardPressed={() => this.props.navigation.navigate('SafariView', [item.illustration, item.title])}
                             cover={item.illustration}
                             tittle={item.title}
                         />

@@ -61,7 +61,7 @@ class Comment extends Component {
                 style={styles.myCommentAndName}>
                     <View style={styles.nameAndRate}>
                         {this.dateTime()}
-                        <Text style={styles.name}>Me</Text>
+                        <Text style={styles.name}>me</Text>
                     </View>
                     <Text style={styles.comment}>This place is very nice, I highly recommend all of you visit there once in your life. </Text>
                 </TouchableOpacity>
@@ -83,7 +83,7 @@ class Comment extends Component {
             <View style={styles.myCommentAndName}>
                 <View style={styles.nameAndRate}>
                     {this.dateTime()}
-                    <Text style={styles.name}>Me</Text>
+                    <Text style={styles.name}>me</Text>
                 </View>
                 <TextInput 
                 multiline = {true}

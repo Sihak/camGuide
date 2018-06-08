@@ -587,7 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				A17B0E372698417082C92ABE /* libRNVectorIcons.a */,
-				9F86E6A9609B45929C7F1BB9 /* libAirMaps.a */,
+				1B8C4B4ED1D54938BCF04D7B /* libBVLinearGradient.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1334,6 +1334,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.campGuide;
 				PRODUCT_NAME = campGuide;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1357,6 +1358,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.campGuide;
 				PRODUCT_NAME = campGuide;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

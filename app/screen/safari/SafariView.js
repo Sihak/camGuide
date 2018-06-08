@@ -5,7 +5,9 @@ import PrimaryHeader from '../../component/primaryHeader';
 import { COLORS, APPEARANCES, DIMENSION } from '../../module';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
-
+import MainCarousel from '../../component/simpleCarousel';
+import TestingData from '../../assets/testingData.js';
+import Comment from './Comment';
 // create a component
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -23,9 +25,8 @@ class SafariView extends Component {
         return (<View style={{ flex: 1 }} >
             <HeaderImageScrollView
                 maxHeight={280}
-                minHeight={50}
+                minHeight={100}
                 renderHeader={() => <View style={{ height: 280 }} >
-
                     <Image
                         resizeMethod={'resize'}
                         resizeMode={'cover'}
@@ -36,17 +37,28 @@ class SafariView extends Component {
                 </View>
                 }
             >
-                <TriggeringView onHide={() => console.log('text hidden')} >
+                <TriggeringView >
                     <View style={{ padding: 15, flex: 1 }}>
                         <View style={styles.cardTittleContainer}>
                             <Text
                                 ellipsizeMode={'tail'}
                                 numberOfLines={2}
                                 style={styles.cardTittle} >{this.state.tittle}</Text>
-                            <View style={styles.locationContainer} >
-                                <Ionicons name='md-pin' style={styles.locationIcon} />
-                                <Text style={styles.locationDescription}>Siemreap</Text>
+                            <View style={[styles.locationContainer, { paddingTop: APPEARANCES.MARGIN - 5, justifyContent: 'space-between' }]}>
+                                <View style={[styles.locationContainer, { marginTop: 5 }]} >
+                                    <Ionicons name='md-pin' style={styles.locationIcon} />
+                                    <Text style={styles.locationDescription}>Siemreap</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 5 }} >
+                                    <Ionicons name='md-eye' style={styles.locationIcon} />
+                                    <Text style={styles.locationDescription}>15</Text>
+                                    <Ionicons name='md-chatbubbles' style={[styles.locationIcon, { marginLeft: 15 }]} />
+                                    <Text style={styles.locationDescription}>2</Text>
+                                </View>
                             </View>
+                        </View>
+                        <View style={[styles.carouselContainer, APPEARANCES.SHADOW]} >
+                            <MainCarousel data={TestingData} />
                         </View>
                         <View style={styles.desriptionContainer}>
                             <Text
@@ -56,10 +68,15 @@ class SafariView extends Component {
                         </Text>
                         </View>
                     </View>
+                    <Text style={styles.reviewTittle}>Reviews</Text>
+                    <Comment
+                        profImg={this.state.illustration}
+                    />
                 </TriggeringView>
             </HeaderImageScrollView>
-            <SafeAreaView style={{ position:'absolute', marginLeft: 15 }} >
+            <SafeAreaView style={{ position: 'absolute', marginLeft: 15, width: DIMENSION(95) }} >
                 <PrimaryHeader
+                    isMap={true}
                     color='#fff'
                     onBackPressed={() => this.props.navigation.goBack()}
                 />
@@ -75,19 +92,23 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
+    carouselContainer: {
+        height: DIMENSION(50),
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     cardTittle: {
         fontSize: 22,
         fontWeight: '400',
         textAlign: 'left'
     },
     locationContainer: {
-        padding: APPEARANCES.MARGIN - 10,
         flexDirection: 'row',
         alignItems: 'center'
     },
     locationIcon: {
         color: '#32D6FA',
-        fontSize: 16,
+        fontSize: 22,
         marginRight: 5
     },
     locationDescription: {
@@ -103,8 +124,15 @@ const styles = StyleSheet.create({
         textAlign: 'justify',
         fontSize: 15,
         fontWeight: '300',
-        letterSpacing: 0.5
-    }
+        letterSpacing: 0.5,
+        lineHeight: 22
+    },
+    reviewTittle: {
+        marginLeft: DIMENSION(4),
+        fontSize: 28,
+        fontWeight: '400',
+        color: '#333'
+    },
 });
 
 //make this component available to the app

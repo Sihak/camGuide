@@ -15,6 +15,9 @@ class PrimaryHeader extends Component {
     onNotificationPressed() {
         this.props.notificationPressed()
     }
+    onFilterPressed() {
+        this.props.filterPressed()
+    }
     
     onBackPressed(){
         if(this.props.isHome){
@@ -48,8 +51,17 @@ class PrimaryHeader extends Component {
                         onPress={() => this.onNotificationPressed()} >
                         <Ionicons style={[APPEARANCES.SHADOW, { fontSize: 34, marginRight: 12, marginTop: 5, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='ios-notifications' />
                     </TouchableOpacity>}
+                    {this.props.isMap && <TouchableOpacity
+                        style={{ justifyContent: 'center', alignItems: 'center' }}
+                        onPress={() => this.onNotificationPressed()} >
+                        <Ionicons style={[APPEARANCES.SHADOW, { fontSize: 34, marginRight: 12, marginTop: 5, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='md-pin' />
+                    </TouchableOpacity>}
+                    {this.props.isFilter && <TouchableOpacity
+                        style={{ justifyContent: 'center', alignItems: 'center' }}
+                        onPress={() => this.onFilterPressed()} >
+                        <Ionicons style={[APPEARANCES.SHADOW, { fontSize: 34, marginRight: 12, marginTop: 5, color: COLORS.SUB_HEADER_TITTLE, fontWeight: '300' }]} name='ios-options' />
+                    </TouchableOpacity>}
                 </View>
-
             </View>
         )
     }

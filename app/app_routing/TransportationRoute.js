@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import Safari from '../screen/safari';
-import FilterScreen from '../screen/safari/FilterScreen';
-import SafariView from '../screen/safari/SafariView';
-import HomeApp from '../screen/home';
+import Transportation from '../screen/transportation';
+import FilterScreen from '../screen/transportation/FilterScreen';
+import SearchVehicle from '../screen/transportation/SearchVehicle';
 
-const SafariRoute = StackNavigator({
-    Safari: {
-        screen: Safari,
+const TransportaionRoute = StackNavigator({
+    TransportationScreen: {
+        screen: Transportation,
         navigationOptions: {
             header: 'none',
             gesturesEnabled: true,
@@ -23,17 +22,18 @@ const SafariRoute = StackNavigator({
             }
         }
     },
-    SafariView: {
-        screen: SafariView,
+    SearchVehicle: {
+        screen: SearchVehicle,
         navigationOptions: {
             header: 'none',
+            gesturesEnabled: true,
             gestureResponseDistance: {
-                horizontal: 0
-            }     
+                vertical: 200,
+            }
         }
     },
 }, {
         mode: 'card',
     })
 
-export default SafariRoute;
+export default TransportaionRoute;

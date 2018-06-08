@@ -4,8 +4,8 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import HomeApp from '../screen/home';
 import Restaurant from '../screen/restaurant';
 import Accommodation from '../screen/accommodation';
-import Transportation from '../screen/transportation';
 import SafariRoute from './SafariRoute';
+import TransportaionRoute from './TransportationRoute';
 
 const HomeStack = StackNavigator({
     Home: {
@@ -48,7 +48,7 @@ const HomeStack = StackNavigator({
 
     },
     transportaion: {
-        screen: Transportation,
+        screen: TransportaionRoute,
         navigationOptions: {
             header: 'none',
             gestureEnabled: true,

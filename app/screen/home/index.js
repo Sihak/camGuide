@@ -13,7 +13,6 @@ import * as Animatable from 'react-native-animatable';
 import PrimaryHeader from '../../component/primaryHeader';
 import testingData from '../../assets/testingData';
 
-
 class HomeApp extends Component {
     constructor(props) {
         super(props)
@@ -21,7 +20,6 @@ class HomeApp extends Component {
             background:require('../../assets/image/safari_cover.jpg'),
         }
     }
-
 
     onNavigate(value){
         this.props.navigation.navigate(value);
@@ -58,7 +56,6 @@ class HomeApp extends Component {
         );
     }
 }
-
 
 const styles = StyleSheet.create({
     carouselContainer: {
